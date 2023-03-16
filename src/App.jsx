@@ -16,6 +16,7 @@ import {
 import { PhotoCamera } from '@mui/icons-material';
 import useStyles from './components/ButtonsStyles';
 
+const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const App = () => {
 	const classes = useStyles();
 	return (
@@ -55,7 +56,44 @@ const App = () => {
 						</div>
 					</Container>
 				</div>
+				<Container className={classes.cardGrid} maxWidth='md'>
+					<Grid container spacing={4}>
+						{cards.map((el) => (
+							<Grid item key={el} xs={12} sm={6} lg={4}>
+								<Card className={classes.card}>
+									<CardMedia
+										className={classes.cardMedia}
+										image='https://source.unsplash.com/random'
+										title='Image title'
+									/>
+									<CardContent className={classes.cardContent}>
+										<Typography gutterBottom variant='h5'>
+											Heading
+										</Typography>
+										<Typography>This is a media card. you can use to view content</Typography>
+									</CardContent>
+									<CardActions>
+										<Button size='small' color='primary'>
+											View
+										</Button>
+										<Button size='small' color='primary'>
+											Edit
+										</Button>
+									</CardActions>
+								</Card>
+							</Grid>
+						))}
+					</Grid>
+				</Container>
 			</main>
+			<footer className={classes.footer}>
+				<Typography variant='h6' align='center' gutterButtom>
+					Footer
+				</Typography>
+				<Typography variant='subtitle1' align='center' color='textSecondary'>
+					Something heren to give footer a purpose
+				</Typography>
+			</footer>
 		</>
 	);
 };
